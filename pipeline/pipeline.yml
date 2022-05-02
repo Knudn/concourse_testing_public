@@ -1,0 +1,15 @@
+---
+resources:
+- name: altitest
+  type: git
+  source:
+    uri: https://github.com/Knudn/concourse_testing_public.git
+    branch: main
+    
+jobs:
+- name: get_pr_git
+  public: false
+  plan:
+  - get: altitest
+  - task: hello-world
+    file: altitest/concourse_testing_public/tasks/tasks.yml
